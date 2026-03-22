@@ -4,9 +4,6 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors());
-
-// ⚠️ LINE webhook ต้องการ raw body สำหรับ verify signature
-app.use('/webhook', express.raw({ type: 'application/json' }));
 app.use(express.json());
 
 // ─── 1. Web chat endpoint (เดิม) ───────────────────────────
@@ -34,8 +31,7 @@ app.post('/webhook', async (req, res) => {
   res.status(200).send('OK');
 
   try {
-    const body = req.body;
-    const events = JSON.parse(body.toString()).events;
+    const events = req.body.events;
 
     for (const event of events) {
       if (event.type !== 'message' || event.message.type !== 'text') continue;
