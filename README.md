@@ -66,7 +66,7 @@ Backend: `http://localhost:3001`
 
 ---
 
-## ☁️ Deployment (Heroku)
+## Deployment (Heroku)
 
 ```bash
 # Login and link repo
@@ -88,9 +88,7 @@ LINE Webhook URL:
 https://your-app-name.herokuapp.com/webhook
 ```
 
----
-
-## 📁 Project Structure
+## Project Structure
 
 ```
 ├── public/
